@@ -2,11 +2,9 @@ package com.demoqa.registrationFormTests;
 
 import com.codeborne.selenide.*;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -38,7 +36,7 @@ public class RegistrationFormTests {
         $(".react-datepicker__year-select").$(byText("1985")).click();
         $(".react-datepicker__month-container").$(byText("25")).click();
         $("#subjectsInput").setValue("Ma");
-        $(".subjects-auto-complete__menu.css-26l3qy-menu").$(byText("Maths")).click();
+        $("#subjectsWrapper").$(byText("Maths")).click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#uploadPicture").uploadFromClasspath("coala.jpg");
