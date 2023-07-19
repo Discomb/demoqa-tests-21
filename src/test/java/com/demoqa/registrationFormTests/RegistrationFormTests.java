@@ -2,15 +2,11 @@ package com.demoqa.registrationFormTests;
 
 import com.codeborne.selenide.*;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.baseUrl;
+import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -21,6 +17,7 @@ public class RegistrationFormTests {
         baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
@@ -36,29 +33,32 @@ public class RegistrationFormTests {
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("9991234545");
         $("#dateOfBirthInput").click();
-        $("#dateOfBirthInput").sendKeys(Keys.CONTROL + "a");
-        $("#dateOfBirthInput").sendKeys("25 Apr 1985" + Keys.ESCAPE);
+        $(".react-datepicker__month-select").click();
+        $(".react-datepicker__month-select").$(byText("April")).click();
+        $(".react-datepicker__year-select").click();
+        $(".react-datepicker__year-select").$(byText("1985")).click();
+        $(".react-datepicker__month-container").$(byText("25")).click();
         $("#subjectsInput").setValue("Ma");
-        $("#react-select-2-option-0").click();
+        $(".subjects-auto-complete__menu.css-26l3qy-menu").$(byText("Maths")).click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/images/coala.jpg"));
+        $("#uploadPicture").uploadFromClasspath("coala.jpg");
         $("#currentAddress").setValue("Test Country\nTest City\nAddress line 1\nAddress line2");
         $("#stateCity-wrapper #state").click();
-        $("#stateCity-wrapper #state #react-select-3-option-1").click();
+        $("#stateCity-wrapper #state").$(byText("Uttar Pradesh")).click();
         $("#stateCity-wrapper #city").click();
-        $("#stateCity-wrapper #city #react-select-4-option-2").click();
+        $("#stateCity-wrapper #city").$(byText("Merrut")).click();
         $("#submit").click();
 
-        $(".modal-content table > tbody > tr:nth-child(1) > td:nth-child(2)").shouldHave(Condition.text("TestName TestSurname"));
-        $(".modal-content table > tbody > tr:nth-child(2) > td:nth-child(2)").shouldHave(Condition.text("testmail@randommail.com"));
-        $(".modal-content table > tbody > tr:nth-child(3) > td:nth-child(2)").shouldHave(Condition.text("Male"));
-        $(".modal-content table > tbody > tr:nth-child(4) > td:nth-child(2)").shouldHave(Condition.text("9991234545"));
-        $(".modal-content table > tbody > tr:nth-child(5) > td:nth-child(2)").shouldHave(Condition.text("25 April,1985"));
-        $(".modal-content table > tbody > tr:nth-child(6) > td:nth-child(2)").shouldHave(Condition.text("Maths"));
-        $(".modal-content table > tbody > tr:nth-child(7) > td:nth-child(2)").shouldHave(Condition.text("Sports, Music"));
-        $(".modal-content table > tbody > tr:nth-child(8) > td:nth-child(2)").shouldHave(Condition.text("coala.jpg"));
-        $(".modal-content table > tbody > tr:nth-child(9) > td:nth-child(2)").shouldHave(Condition.text("Test Country Test City Address line 1 Address line2"));
-        $(".modal-content table > tbody > tr:nth-child(10) > td:nth-child(2)").shouldHave(Condition.text("Uttar Pradesh Merrut"));
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("TestName TestSurname"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("testmail@randommail.com"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("9991234545"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("25 April,1985"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports, Music"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("coala.jpg"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Test Country Test City Address line 1 Address line2"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("Uttar Pradesh Merrut"));
     }
 }
