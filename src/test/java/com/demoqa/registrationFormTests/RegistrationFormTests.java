@@ -42,7 +42,7 @@ public class RegistrationFormTests {
         $("#react-select-2-option-0").click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFile(new File("C:\\Users\\Николай\\Pictures\\IMG_20230224_123307.jpg"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/images/IMG_20230224_123307.jpg"));
         $("#currentAddress").setValue("Test Country\nTest City\nAddress line 1\nAddress line2");
         $("#stateCity-wrapper #state").click();
         $("#stateCity-wrapper #state #react-select-3-option-1").click();
