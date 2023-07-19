@@ -42,7 +42,7 @@ public class RegistrationFormTests {
         $("#react-select-2-option-0").click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/images/IMG_20230224_123307.jpg"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/images/coala.jpg"));
         $("#currentAddress").setValue("Test Country\nTest City\nAddress line 1\nAddress line2");
         $("#stateCity-wrapper #state").click();
         $("#stateCity-wrapper #state #react-select-3-option-1").click();
@@ -57,7 +57,7 @@ public class RegistrationFormTests {
         $(".modal-content table > tbody > tr:nth-child(5) > td:nth-child(2)").shouldHave(Condition.text("25 April,1985"));
         $(".modal-content table > tbody > tr:nth-child(6) > td:nth-child(2)").shouldHave(Condition.text("Maths"));
         $(".modal-content table > tbody > tr:nth-child(7) > td:nth-child(2)").shouldHave(Condition.text("Sports, Music"));
-        $(".modal-content table > tbody > tr:nth-child(8) > td:nth-child(2)").shouldHave(Condition.text("IMG_20230224_123307.jpg"));
+        $(".modal-content table > tbody > tr:nth-child(8) > td:nth-child(2)").shouldHave(Condition.text("coala.jpg"));
         $(".modal-content table > tbody > tr:nth-child(9) > td:nth-child(2)").shouldHave(Condition.text("Test Country Test City Address line 1 Address line2"));
         $(".modal-content table > tbody > tr:nth-child(10) > td:nth-child(2)").shouldHave(Condition.text("Uttar Pradesh Merrut"));
     }
