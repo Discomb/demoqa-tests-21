@@ -1,40 +1,26 @@
-package com.demoqa.registrationFormTests;
+package com.demoqa.tests;
 
-import com.codeborne.selenide.*;
-import org.junit.jupiter.api.*;
+import com.demoqa.pages.RegistrationPage;
+import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
-public class RegistrationFormTests {
+public class RegistrationWithPageObjectsFormTests extends TestBase {
 
-    @BeforeAll
-    static void beforeAll() {
-        baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-    }
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    void fillFormTest(){
-        open("/automation-practice-form");
+    void fillFormTest() {
 
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-
-        $("#firstName").setValue("TestName");
-        $("#lastName").setValue("TestSurname");
-        $("#userEmail").setValue("testmail@randommail.com");
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("9991234545");
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").click();
-        $(".react-datepicker__month-select").$(byText("April")).click();
-        $(".react-datepicker__year-select").click();
-        $(".react-datepicker__year-select").$(byText("1985")).click();
-        $(".react-datepicker__month-container").$(byText("25")).click();
+        registrationPage.openPage()
+                .setFirstName("TestName")
+                .setLastName("TestSurname")
+                .setUserEmail("testmail@randommail.com")
+                .setGender("Male")
+                .setUserNumber("9991234545")
+                .setBirthDate("25", "April", "1985");
         $("#subjectsInput").setValue("Ma");
         $("#subjectsWrapper").$(byText("Maths")).click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
