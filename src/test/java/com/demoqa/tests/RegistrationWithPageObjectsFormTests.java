@@ -20,25 +20,23 @@ public class RegistrationWithPageObjectsFormTests extends TestBase {
                 .setUserEmail("testmail@randommail.com")
                 .setGender("Male")
                 .setUserNumber("9991234545")
-                .setBirthDate("25", "April", "1985");
-        $("#subjectsInput").setValue("Ma");
-        $("#subjectsWrapper").$(byText("Maths")).click();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("coala.jpg");
-        $("#currentAddress").setValue("Test Country\nTest City\nAddress line 1\nAddress line2");
-        $("#stateCity-wrapper #state").click();
-        $("#stateCity-wrapper #state").$(byText("Uttar Pradesh")).click();
-        $("#stateCity-wrapper #city").click();
-        $("#stateCity-wrapper #city").$(byText("Merrut")).click();
-        $("#submit").click();
+                .setBirthDate("25", "April", "1985")
+                .setSubject("Maths")
+                .setSubject("Economics")
+                .setHobbie("Sports")
+                .setHobbie("Music")
+                .uploadPicture("coala.jpg")
+                .setAddress("Test Country\nTest City\nAddress line 1\nAddress line2")
+                .setState("Uttar Pradesh")
+                .setCity("Merrut")
+                .submit();
 
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("TestName TestSurname"));
         $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("testmail@randommail.com"));
         $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
         $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("9991234545"));
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("25 April,1985"));
-        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths, Economics"));
         $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports, Music"));
         $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("coala.jpg"));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Test Country Test City Address line 1 Address line2"));
