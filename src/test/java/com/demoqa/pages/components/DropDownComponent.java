@@ -3,13 +3,16 @@ package com.demoqa.pages.components;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
 
 public class DropDownComponent {
 
-    public void setValue(SelenideElement element, String value){
+    SelenideElement dropdown = $("#stateCity-wrapper");
 
-        element.click();
-        element.$(byText(value)).click();
+    public void setValue(String selector, String value) {
+
+        dropdown.$(selector).click();
+        dropdown.$(selector).$(byText(value)).click();
 
     }
 

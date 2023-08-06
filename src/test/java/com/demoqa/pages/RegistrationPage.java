@@ -3,6 +3,7 @@ package com.demoqa.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.DropDownComponent;
+import com.demoqa.pages.components.ResultTableComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -11,6 +12,8 @@ public class RegistrationPage {
 
     CalendarComponent calendar = new CalendarComponent();
     DropDownComponent dropdown = new DropDownComponent();
+
+    ResultTableComponent resultTable = new ResultTableComponent();
 
     SelenideElement
             firstNameInput = $("#firstName"),
@@ -24,9 +27,11 @@ public class RegistrationPage {
             hobbiesWrapper = $("#hobbiesWrapper"),
             pictureUploader = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
-    stateDropdown = $("#stateCity-wrapper #state"),
-    cityDropdown = $("#stateCity-wrapper #city"),
-    submitButton =$("#submit");
+            submitButton = $("#submit");
+
+    String
+            stateDropdown = "#state",
+            cityDropdown = "#city";
 
 
     public RegistrationPage openPage() {
@@ -107,7 +112,7 @@ public class RegistrationPage {
 
     public RegistrationPage setState(String value) {
 
-        dropdown.setValue(stateDropdown,value);
+        dropdown.setValue(stateDropdown, value);
 
         return this;
     }
@@ -126,10 +131,13 @@ public class RegistrationPage {
         return this;
     }
 
-//    public RegistrationPage checkResult(String value) {
-//        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(value));
-//
-//        return this;
-//    }
+    public void checkResults(String[][] values) {
+
+        for (String[] valuePair : values
+        ) {
+            resultTable.checkResult(valuePair[0], valuePair[1]);
+        }
+
+    }
 
 }
