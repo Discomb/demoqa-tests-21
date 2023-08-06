@@ -1,24 +1,15 @@
-package com.demoqa.registrationFormTests;
+package com.demoqa.tests;
 
-import com.codeborne.selenide.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationFormTests {
-
-    @BeforeAll
-    static void beforeAll() {
-        baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-    }
+public class RegistrationFormTests extends TestBase {
 
     @Test
-    void fillFormTest(){
+    void fillFormTest() {
         open("/automation-practice-form");
 
         executeJavaScript("$('#fixedban').remove()");
