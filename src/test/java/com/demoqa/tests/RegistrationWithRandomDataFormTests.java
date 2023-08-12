@@ -31,11 +31,11 @@ public class RegistrationWithRandomDataFormTests extends TestBase {
                 .submit()
 
                 .checkResults(new String[][]{
-                        {"Student Name", firstName},
-                        {"Student Email", lastName},
+                        {"Student Name", firstName + " " + lastName},
+                        {"Student Email", userEmail},
                         {"Gender", userGender},
                         {"Mobile", userPhoneNumber},
-                        {"Date of Birth", "25 April,1985"},
+                        {"Date of Birth", userBirthDate[0] + " " + userBirthDate[1] + "," + userBirthDate[2]},
                         {"Subjects", subject1 + ", " + subject2},
                         {"Hobbies", hobbie1 + ", " + hobbie2},
                         {"Picture", userPicture},

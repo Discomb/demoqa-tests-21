@@ -10,14 +10,14 @@ public class TestData {
             userEmail = generateEmail(),
             userGender = rangomGender(),
             userPhoneNumber = generatePhoneNumber(),
-            subject1,
-            subject2,
-            hobbie1,
-            hobbie2,
-            userPicture,
-            userAddress,
-            userState,
-            userCity;
+            subject1 = randomSubject("none"),
+            subject2 = randomSubject(subject1),
+            hobbie1 = randomHobbie("none"),
+            hobbie2 = randomHobbie(hobbie1),
+            userPicture = "coala.jpg",
+            userAddress = getRandomAddress(),
+            userState = randomState(),
+            userCity = randomCity(userState);
 
     public static String[]
             userBirthDate = generateBirthdate();
