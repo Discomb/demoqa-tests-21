@@ -34,14 +34,17 @@ public class RegistrationPage {
             cityDropdown = "#city";
 
 
-    public RegistrationPage openPage() {
-        open("/automation-practice-form");
+    private void hideBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+    }
+
+    public RegistrationPage openPage() {
+        open("/automation-practice-form");
+        hideBanners();
 
         return this;
     }
-
 
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
@@ -77,6 +80,14 @@ public class RegistrationPage {
 
         birthDateInput.click();
         calendar.setDate(day, month, year);
+
+        return this;
+    }
+
+    public RegistrationPage setBirthDate(String[] birthDate) {
+
+        birthDateInput.click();
+        calendar.setDate(birthDate[0], birthDate[1], birthDate[2]);
 
         return this;
     }
