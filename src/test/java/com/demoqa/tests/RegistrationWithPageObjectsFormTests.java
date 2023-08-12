@@ -40,4 +40,5 @@ public class RegistrationWithPageObjectsFormTests extends TestBase {
                         {"State and City", "Uttar Pradesh Merrut"}
                 });
     }
+
 }
