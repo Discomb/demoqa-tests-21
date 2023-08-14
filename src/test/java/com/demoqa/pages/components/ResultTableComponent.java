@@ -11,7 +11,7 @@ public class ResultTableComponent {
     SelenideElement tableField = $(".table-responsive");
 
     public static String
-            nameField =  "Student Name",
+            nameField = "Student Name",
             emailField = "Student Email",
             genderField = "Gender",
             mobileNumberField = "Mobile",

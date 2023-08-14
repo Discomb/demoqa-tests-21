@@ -154,16 +154,17 @@ public class RegistrationPage {
 
     public void checkResults(TestData testData) {
 
-            resultTable
-                    .checkResult(nameField, testData.firstName + " " + testData.lastName)
-                    .checkResult(emailField, testData.userEmail)
-                    .checkResult(genderField, testData.userGender)
-                    .checkResult(birthdayField, testData.userBirthDate[0] + " " + testData.userBirthDate[1] + "," + testData.userBirthDate[2])
-                    .checkResult(subjectsField, testData.subject1 + ", " + testData.subject2)
-                    .checkResult(hobbiesField, testData.hobbie1 + ", " + testData.hobbie2)
-                    .checkResult(picturefield, testData.userPicture)
-                    .checkResult(addressField, testData.userAddress)
-                    .checkResult(stateAndCityField, testData.userState + " " + testData.userCity);
+        resultTable
+                .checkResult(nameField, testData.firstName + " " + testData.lastName)
+                .checkResult(emailField, testData.userEmail)
+                .checkResult(genderField, testData.userGender)
+                .checkResult(mobileNumberField, testData.userPhoneNumber)
+                .checkResult(birthdayField, testData.userBirthDate[0] + " " + testData.userBirthDate[1] + "," + testData.userBirthDate[2])
+                .checkResult(subjectsField, testData.subject1 + ", " + testData.subject2)
+                .checkResult(hobbiesField, testData.hobbie1 + ", " + testData.hobbie2)
+                .checkResult(picturefield, testData.userPicture)
+                .checkResult(addressField, testData.userAddress)
+                .checkResult(stateAndCityField, testData.userState + " " + testData.userCity);
 
     }
 
