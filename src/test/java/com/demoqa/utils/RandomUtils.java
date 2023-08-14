@@ -73,7 +73,6 @@ public class RandomUtils {
         String[] hobbies = {"Sports", "Reading", "Music"};
 
         String hobby = faker.options().option(hobbies);
-        ;
 
         if (prev.equals(hobby)) {
             return randomHobbie(prev);
