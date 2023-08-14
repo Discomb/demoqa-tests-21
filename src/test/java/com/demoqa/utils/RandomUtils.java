@@ -3,23 +3,12 @@ package com.demoqa.utils;
 import com.github.javafaker.Faker;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Random;
 
 public class RandomUtils {
 
-    public static void main(String[] args) {
-        generateBirthdate();
-    }
-
     static Faker faker = new Faker(Locale.ENGLISH);
-    static Random random = new Random();
-
-    public static int getRandomInt(int min, int max) {
-        return random.nextInt(((max - min) + 1) + min);
-    }
 
     public static String generateName() {
 
@@ -36,11 +25,11 @@ public class RandomUtils {
         return faker.internet().emailAddress();
     }
 
-    public static String rangomGender() {
+    public static String randomGender() {
 
         String[] genders = {"Male", "Female", "Other"};
 
-        return genders[getRandomInt(0, genders.length - 1)];
+        return faker.options().option(genders);
 
     }
 
@@ -53,13 +42,10 @@ public class RandomUtils {
 
         Date bd = faker.date().birthday();
         String[] birthdate = new String[3];
-        Calendar calendar = Calendar.getInstance();
 
-        calendar.setTime(bd);
-
-        birthdate[0] = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+        birthdate[0] = new SimpleDateFormat("dd").format(bd.getTime());
         birthdate[1] = new SimpleDateFormat("MMMM", Locale.ENGLISH).format(bd.getTime());
-        birthdate[2] = String.valueOf(calendar.get(Calendar.YEAR));
+        birthdate[2] = new SimpleDateFormat("yyyy").format(bd.getTime());
 
         return birthdate;
     }
@@ -72,7 +58,7 @@ public class RandomUtils {
                 "Computer Science", "Commerce", "Economics",
                 "Civics", "Hindi", "English", "History"};
 
-        String subject = subjects[getRandomInt(0, subjects.length - 1)];
+        String subject = faker.options().option(subjects);
 
         if (prev.equals(subject)) {
             return randomSubject(prev);
@@ -86,7 +72,7 @@ public class RandomUtils {
 
         String[] hobbies = {"Sports", "Reading", "Music"};
 
-        String hobby = hobbies[getRandomInt(0, hobbies.length - 1)];
+        String hobby = faker.options().option(hobbies);
 
         if (prev.equals(hobby)) {
             return randomHobbie(prev);
@@ -107,7 +93,7 @@ public class RandomUtils {
         String[] states = {"NCR", "Uttar Pradesh",
                 "Haryana", "Rajasthan"};
 
-        return states[getRandomInt(0, states.length - 1)];
+        return faker.options().option(states);
 
     }
 
@@ -117,20 +103,20 @@ public class RandomUtils {
             case "Uttar Pradesh" -> {
                 String[] cities = {"Agra", "Lucknow",
                         "Merrut"};
-                return cities[getRandomInt(0, cities.length - 1)];
+                return faker.options().option(cities);
             }
             case "NCR" -> {
                 String[] cities = {"Delhi", "Gurgaon",
                         "Noida"};
-                return cities[getRandomInt(0, cities.length - 1)];
+                return faker.options().option(cities);
             }
             case "Haryana" -> {
                 String[] cities = {"Karnal", "Panipat"};
-                return cities[getRandomInt(0, cities.length - 1)];
+                return faker.options().option(cities);
             }
             case "Rajasthan" -> {
                 String[] cities = {"Jaipur", "Jaiselmer"};
-                return cities[getRandomInt(0, cities.length - 1)];
+                return faker.options().option(cities);
             }
         }
 

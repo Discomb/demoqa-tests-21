@@ -4,11 +4,11 @@ import static com.demoqa.utils.RandomUtils.*;
 
 public class TestData {
 
-    public static String
+    public String
             firstName = generateName(),
             lastName = generateLastName(),
             userEmail = generateEmail(),
-            userGender = rangomGender(),
+            userGender = randomGender(),
             userPhoneNumber = generatePhoneNumber(),
             subject1 = randomSubject("none"),
             subject2 = randomSubject(subject1),
@@ -19,7 +19,7 @@ public class TestData {
             userState = randomState(),
             userCity = randomCity(userState);
 
-    public static String[]
+    public String[]
             userBirthDate = generateBirthdate();
 
 
