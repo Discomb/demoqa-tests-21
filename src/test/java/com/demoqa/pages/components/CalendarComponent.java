@@ -1,9 +1,13 @@
 package com.demoqa.pages.components;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+
+import java.lang.reflect.Array;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class CalendarComponent {
 
@@ -15,6 +19,7 @@ public class CalendarComponent {
     public void setDate(String day, String month, String year) {
         monthSelector.selectOption(month);
         yearSelector.selectOption(year);
-        daySelector.$(byText(day)).click();
+        daySelector.$(".react-datepicker__day--0" + day + ":not(.react-datepicker__day--outside-month)").click();
+
     }
 }

@@ -4,9 +4,11 @@ import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.DropDownComponent;
 import com.demoqa.pages.components.ResultTableComponent;
+import com.demoqa.tests.TestData;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.demoqa.pages.components.ResultTableComponent.*;
 
 public class RegistrationPage {
 
@@ -32,7 +34,6 @@ public class RegistrationPage {
     String
             stateDropdown = "#state",
             cityDropdown = "#city";
-
 
     private void hideBanners() {
         executeJavaScript("$('#fixedban').remove()");
@@ -148,6 +149,21 @@ public class RegistrationPage {
         ) {
             resultTable.checkResult(valuePair[0], valuePair[1]);
         }
+
+    }
+
+    public void checkResults(TestData testData) {
+
+            resultTable
+                    .checkResult(nameField, testData.firstName + " " + testData.lastName)
+                    .checkResult(emailField, testData.userEmail)
+                    .checkResult(genderField, testData.userGender)
+                    .checkResult(birthdayField, testData.userBirthDate[0] + " " + testData.userBirthDate[1] + "," + testData.userBirthDate[2])
+                    .checkResult(subjectsField, testData.subject1 + ", " + testData.subject2)
+                    .checkResult(hobbiesField, testData.hobbie1 + ", " + testData.hobbie2)
+                    .checkResult(picturefield, testData.userPicture)
+                    .checkResult(addressField, testData.userAddress)
+                    .checkResult(stateAndCityField, testData.userState + " " + testData.userCity);
 
     }
 

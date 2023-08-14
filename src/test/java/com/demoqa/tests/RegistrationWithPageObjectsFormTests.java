@@ -16,7 +16,7 @@ public class RegistrationWithPageObjectsFormTests extends TestBase {
                 .setUserEmail("testmail@randommail.com")
                 .setGender("Male")
                 .setUserNumber("9991234545")
-                .setBirthDate("25", "April", "1985")
+                .setBirthDate("30", "September", "2023")
                 .setSubject("Maths")
                 .setSubject("Economics")
                 .setHobbie("Sports")
@@ -32,7 +32,7 @@ public class RegistrationWithPageObjectsFormTests extends TestBase {
                         {"Student Email", "testmail@randommail.com"},
                         {"Gender", "Male"},
                         {"Mobile", "9991234545"},
-                        {"Date of Birth", "25 April,1985"},
+                        {"Date of Birth", "30 September,2023"},
                         {"Subjects", "Maths, Economics"},
                         {"Hobbies", "Sports, Music"},
                         {"Picture", "coala.jpg"},
