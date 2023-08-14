@@ -8,7 +8,7 @@ public class TestData {
             firstName = generateName(),
             lastName = generateLastName(),
             userEmail = generateEmail(),
-            userGender = rangomGender(),
+            userGender = randomGender(),
             userPhoneNumber = generatePhoneNumber(),
             subject1 = randomSubject("none"),
             subject2 = randomSubject(subject1),
