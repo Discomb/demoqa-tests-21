@@ -1,26 +1,28 @@
 package com.demoqa.tests;
 
-import static com.demoqa.utils.RandomUtils.*;
+import com.demoqa.utils.RandomUtils;
 
 public class TestData {
 
+    RandomUtils randomUtils = new RandomUtils();
+
     public String
-            firstName = generateName(),
-            lastName = generateLastName(),
-            userEmail = generateEmail(),
-            userGender = randomGender(),
-            userPhoneNumber = generatePhoneNumber(),
-            subject1 = randomSubject("none"),
-            subject2 = randomSubject(subject1),
-            hobbie1 = randomHobbie("none"),
-            hobbie2 = randomHobbie(hobbie1),
+            firstName = randomUtils.generateName(),
+            lastName = randomUtils.generateLastName(),
+            userEmail = randomUtils.generateEmail(),
+            userGender = randomUtils.randomGender(),
+            userPhoneNumber = randomUtils.generatePhoneNumber(),
+            subject1 = randomUtils.randomSubject("none"),
+            subject2 = randomUtils.randomSubject(subject1),
+            hobbie1 = randomUtils.randomHobbie("none"),
+            hobbie2 = randomUtils.randomHobbie(hobbie1),
             userPicture = "coala.jpg",
-            userAddress = getRandomAddress(),
-            userState = randomState(),
-            userCity = randomCity(userState);
+            userAddress = randomUtils.getRandomAddress(),
+            userState = randomUtils.randomState(),
+            userCity = randomUtils.randomCity(userState);
 
     public String[]
-            userBirthDate = generateBirthdate();
+            userBirthDate = randomUtils.generateBirthdate();
 
 
 }
