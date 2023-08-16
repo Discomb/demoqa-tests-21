@@ -8,24 +8,24 @@ import java.util.Locale;
 
 public class RandomUtils {
 
-    static Faker faker = new Faker(Locale.ENGLISH);
+    Faker faker = new Faker(Locale.ENGLISH);
 
-    public static String generateName() {
+    public String generateName() {
 
         return faker.name().firstName();
     }
 
-    public static String generateLastName() {
+    public String generateLastName() {
 
         return faker.name().lastName();
     }
 
-    public static String generateEmail() {
+    public String generateEmail() {
 
         return faker.internet().emailAddress();
     }
 
-    public static String randomGender() {
+    public String randomGender() {
 
         String[] genders = {"Male", "Female", "Other"};
 
@@ -33,12 +33,12 @@ public class RandomUtils {
 
     }
 
-    public static String generatePhoneNumber() {
+    public String generatePhoneNumber() {
 
         return faker.phoneNumber().subscriberNumber(10);
     }
 
-    public static String[] generateBirthdate() {
+    public String[] generateBirthdate() {
 
         Date bd = faker.date().birthday();
         String[] birthdate = new String[3];
@@ -50,7 +50,7 @@ public class RandomUtils {
         return birthdate;
     }
 
-    public static String randomSubject(String prev) {
+    public String randomSubject(String prev) {
 
         String[] subjects = {"Maths", "Accounting",
                 "Arts", "Social Studies",
@@ -68,7 +68,7 @@ public class RandomUtils {
 
     }
 
-    public static String randomHobbie(String prev) {
+    public String randomHobbie(String prev) {
 
         String[] hobbies = {"Sports", "Reading", "Music"};
 
@@ -82,13 +82,13 @@ public class RandomUtils {
 
     }
 
-    public static String getRandomAddress() {
+    public String getRandomAddress() {
 
         return faker.address().fullAddress();
 
     }
 
-    public static String randomState() {
+    public String randomState() {
 
         String[] states = {"NCR", "Uttar Pradesh",
                 "Haryana", "Rajasthan"};
@@ -97,7 +97,7 @@ public class RandomUtils {
 
     }
 
-    public static String randomCity(String state) {
+    public String randomCity(String state) {
 
         switch (state) {
             case "Uttar Pradesh" -> {
