@@ -2,6 +2,7 @@ package com.demoqa.tests;
 
 import com.demoqa.pages.RegistrationPage;
 import io.qameta.allure.Description;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +13,9 @@ public class RegistrationRemoteTests extends RemoteTestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     TestData testData = new TestData();
 
-    @Test
+    @Test()
     @Tag("remote")
+    @DisplayName("Проверка заполнения регистрационной формы")
     @Description("Проверка заполнения регистрационной формы")
     void fillFormTest() {
         step("Открываем регистрационную форму", () -> {
