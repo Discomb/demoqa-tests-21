@@ -100,21 +100,21 @@ public class RandomUtils {
     public String randomCity(String state) {
 
         switch (state) {
-            case "Uttar Pradesh" -> {
+            case "Uttar Pradesh"-> {
                 String[] cities = {"Agra", "Lucknow",
                         "Merrut"};
                 return faker.options().option(cities);
             }
-            case "NCR" -> {
+            case "NCR"-> {
                 String[] cities = {"Delhi", "Gurgaon",
                         "Noida"};
                 return faker.options().option(cities);
             }
-            case "Haryana" -> {
+            case "Haryana"-> {
                 String[] cities = {"Karnal", "Panipat"};
                 return faker.options().option(cities);
             }
-            case "Rajasthan" -> {
+            case "Rajasthan"-> {
                 String[] cities = {"Jaipur", "Jaiselmer"};
                 return faker.options().option(cities);
             }
