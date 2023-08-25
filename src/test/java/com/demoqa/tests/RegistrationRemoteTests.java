@@ -1,6 +1,7 @@
 package com.demoqa.tests;
 
 import com.demoqa.pages.RegistrationPage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -11,6 +12,7 @@ public class RegistrationRemoteTests extends RemoteTestBase {
     TestData testData = new TestData();
 
     @Test
+    @Tag("remote")
     void fillFormTest() {
         step("Открываем регистрационную форму", () -> {
             registrationPage.openPage();
