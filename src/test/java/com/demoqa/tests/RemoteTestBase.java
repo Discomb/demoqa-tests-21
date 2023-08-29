@@ -19,14 +19,16 @@ public class RemoteTestBase {
     static void beforeAll() {
 
         String selenoidHome = System.getProperty("selenoidHome");
-//        String selenoidCreds = System.getProperty("selenoidCreds");
-        String selenoidCreds = "user1:1234";
+        String selenoidCreds = System.getProperty("selenoidCreds");
+//        String selenoidCreds = "user1:1234";
 
         baseUrl = "https://demoqa.com";
         Configuration.browserSize = System.getProperty("browserSize");
         Configuration.pageLoadStrategy = "eager";
         Configuration.browser = System.getProperty("browser");
         Configuration.browserVersion = System.getProperty("browserVersion");
+
+        System.out.println(selenoidCreds);
 
         Configuration.remote = "https://" + selenoidCreds + "@" + selenoidHome + "/wd/hub";
 
