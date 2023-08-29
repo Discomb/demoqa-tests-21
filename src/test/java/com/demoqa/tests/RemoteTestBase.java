@@ -19,7 +19,8 @@ public class RemoteTestBase {
     static void beforeAll() {
 
         String selenoidHome = System.getProperty("selenoidHome");
-        String selenoidCreds = System.getProperty("selenoidCreds");
+//        String selenoidCreds = System.getProperty("selenoidCreds");
+        String selenoidCreds = "user1:1234";
 
         baseUrl = "https://demoqa.com";
         Configuration.browserSize = System.getProperty("browserSize");
