@@ -17,12 +17,17 @@ public class RemoteTestBase {
 
     @BeforeAll
     static void beforeAll() {
-        baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.browser = "chrome";
 
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        String selenoidHome = System.getProperty("selenoidHome");
+        String selenoidCreds = System.getProperty("selenoidCreds");
+
+        baseUrl = "https://demoqa.com";
+        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserVersion = System.getProperty("browserVersion");
+
+        Configuration.remote = "https://" + selenoidCreds + "@" + selenoidHome + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
@@ -39,7 +44,7 @@ public class RemoteTestBase {
     }
 
     @AfterEach
-    void addAttachments(){
+    void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
