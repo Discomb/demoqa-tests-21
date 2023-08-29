@@ -20,7 +20,6 @@ public class RemoteTestBase {
 
         String selenoidHome = System.getProperty("selenoidHome");
         String selenoidCreds = System.getProperty("selenoidCreds");
-//        String selenoidCreds = "user1:1234";
 
         baseUrl = "https://demoqa.com";
         Configuration.browserSize = System.getProperty("browserSize");
